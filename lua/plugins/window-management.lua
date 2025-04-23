@@ -9,7 +9,5 @@ return {
       desc = "Toggle maximize windows",
     },
   },
-  config = function()
-    require("maximize").setup()
-  end,
+  opts = {},
 }

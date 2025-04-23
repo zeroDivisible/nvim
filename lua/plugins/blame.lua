@@ -6,9 +6,7 @@ return {
       { "<leader>gb", "<cmd>BlameToggle virtual<cr>", desc = "Git Blame (virtual mode)" },
       { "<leader>gB", "<cmd>BlameToggle window<cr>", desc = "Git Blame (window mode)" },
     },
-    config = function()
-      require("blame").setup({})
-    end,
+    opts = {},
   },
 
   -- adds blame details to current line, copy file address, etc
@@ -19,10 +17,7 @@ return {
       { "<leader>gor", "<cmd>GitBlameOpenFileURL<cr>", desc = "Open Remote @ main" },
       { "<leader>goc", "<cmd>GitBlameOpenCommitURL<cr>", desc = "Open Commit Changing Line" },
     },
-    config = function()
-      require("gitblame").setup({
-        enabled = false,
-      })
-    end,
+    enabled = false,
+    opts = {},
   },
 }
