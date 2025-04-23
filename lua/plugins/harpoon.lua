@@ -20,8 +20,6 @@ return {
       vim.keymap.set("n", "<C-s>", function()
         ui.nav_file(4)
       end)
-
-      require("telescope").load_extension("harpoon")
     end,
   },
 }
