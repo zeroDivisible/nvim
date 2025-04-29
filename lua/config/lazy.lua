@@ -21,7 +21,7 @@ require("lazy").setup({
       "LazyVim/LazyVim",
       import = "lazyvim.plugins",
       opts = {
-        colorscheme = "mountaineer",
+        colorscheme = "alduin",
       },
     },
     -- import/override with your plugins
@@ -36,7 +36,7 @@ require("lazy").setup({
     version = false, -- always use the latest git commit
     -- version = "*", -- try installing the latest stable version for plugins that support semver
   },
-  install = { colorscheme = { "mountaineer" } },
+  install = { colorscheme = { "alduin" } },
   checker = {
     enabled = true, -- check for plugin updates periodically
     notify = false, -- notify on update
