@@ -21,7 +21,7 @@ require("lazy").setup({
       "LazyVim/LazyVim",
       import = "lazyvim.plugins",
       opts = {
-        colorscheme = "onehalflight",
+        colorscheme = "gotham256",
       },
     },
     -- import/override with your plugins
@@ -36,7 +36,7 @@ require("lazy").setup({
     version = false, -- always use the latest git commit
     -- version = "*", -- try installing the latest stable version for plugins that support semver
   },
-  install = { colorscheme = { "onehalflight" } },
+  install = { colorscheme = { "gotham256" } },
   checker = {
     enabled = true, -- check for plugin updates periodically
     notify = false, -- notify on update

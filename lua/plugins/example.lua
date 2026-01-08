@@ -13,7 +13,7 @@ return {
   {
     "LazyVim/LazyVim",
     opts = {
-      colorscheme = "onehalflight",
+      colorscheme = "gotham256",
     },
   },
 
