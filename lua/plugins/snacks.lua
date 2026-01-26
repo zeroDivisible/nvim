@@ -6,6 +6,16 @@ return {
         replace_netrw = false,
       },
       picker = {
+        layout = {
+          preset = "vertical", -- list on top, preview on bottom
+          layout = {
+            height = 0.85,
+            width = 0.85,
+          },
+          preview = {
+            height = 0.7, -- 70% for preview, 30% for list
+          },
+        },
         sources = {
           explorer = {
             trash = true,

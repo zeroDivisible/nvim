@@ -1,0 +1,10 @@
+return {
+  {
+    "neovim/nvim-lspconfig",
+    opts = {
+      inlay_hints = {
+        enabled = false, -- disable by default (toggle with <leader>uh)
+      },
+    },
+  },
+}
