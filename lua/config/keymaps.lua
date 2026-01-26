@@ -3,19 +3,14 @@
 -- Add any additional keymaps here
 vim.keymap.set("i", "<C-G>", "<ESC>", { silent = true })
 
--- disable ext mode
-vim.keymap.set("n", "Q", "<Nop>", { silent = true })
+-- disable Ex mode (Q in Neovim replays last macro by default, which is useful)
+vim.keymap.set("n", "gQ", "<Nop>", { silent = true, desc = "Disable Ex mode" })
 
--- clipboard
+-- clipboard (Cmd key mappings for GUI nvim)
 vim.keymap.set("n", "<D-s>", ":w<CR>") -- Save
 vim.keymap.set("v", "<D-c>", '"+y') -- Copy
 vim.keymap.set("n", "<D-v>", '"+P') -- Paste normal mode
 vim.keymap.set("v", "<D-v>", '"+P') -- Paste visual mode
 vim.keymap.set("c", "<D-v>", "<C-R>+") -- Paste command mode
 vim.keymap.set("i", "<D-v>", '<ESC>l"+Pli') -- Paste insert mode
-
--- Allow clipboard copy paste in neovim
-vim.api.nvim_set_keymap("", "<D-v>", "+p<CR>", { noremap = true, silent = true })
-vim.api.nvim_set_keymap("!", "<D-v>", "<C-R>+", { noremap = true, silent = true })
-vim.api.nvim_set_keymap("t", "<D-v>", "<C-R>+", { noremap = true, silent = true })
-vim.api.nvim_set_keymap("v", "<D-v>", "<C-R>+", { noremap = true, silent = true })
+vim.keymap.set("t", "<D-v>", "<C-R>+") -- Paste terminal mode

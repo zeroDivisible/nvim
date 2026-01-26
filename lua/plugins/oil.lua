@@ -2,13 +2,13 @@ return {
   {
     "stevearc/oil.nvim",
     lazy = false,
-    -- Optional dependencies
     dependencies = { "nvim-tree/nvim-web-devicons" },
     opts = {
       default_file_explorer = true,
       delete_to_trash = true,
       restore_win_options = true,
       skip_confirm_for_simple_edits = true,
+      watch_for_changes = true,
       columns = {
         "icon",
         -- "permissions",
@@ -27,7 +27,8 @@ return {
       },
     },
     keys = {
-      { "<leader>o", "<cmd>Oil --float<cr>", desc = "Oil" },
+      { "<leader>o", "<cmd>Oil --float<cr>", desc = "Oil (float)" },
+      { "-", "<cmd>Oil<cr>", desc = "Oil (current dir)" },
     },
   },
 }
