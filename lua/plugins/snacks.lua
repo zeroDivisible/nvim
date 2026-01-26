@@ -30,6 +30,11 @@ return {
       scratch = { enabled = true },
       words = { enabled = true },
       rename = { enabled = true },
+      -- Disable animated scope line (inside indent module)
+      indent = {
+        scope = { enabled = false },
+        animate = { enabled = false },
+      },
     },
     keys = {
       { "<leader>z", function() Snacks.zen() end, desc = "Toggle Zen Mode" },
