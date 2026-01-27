@@ -6,6 +6,10 @@ vim.keymap.set("i", "<C-G>", "<ESC>", { silent = true })
 -- disable Ex mode (Q in Neovim replays last macro by default, which is useful)
 vim.keymap.set("n", "gQ", "<Nop>", { silent = true, desc = "Disable Ex mode" })
 
+-- buffer navigation (vim tab-like bindings)
+vim.keymap.set("n", "gt", ":bnext<CR>", { silent = true, desc = "Next buffer" })
+vim.keymap.set("n", "gT", ":bprevious<CR>", { silent = true, desc = "Previous buffer" })
+
 -- clipboard (Cmd key mappings for GUI nvim)
 vim.keymap.set("n", "<D-s>", ":w<CR>") -- Save
 vim.keymap.set("v", "<D-c>", '"+y') -- Copy
