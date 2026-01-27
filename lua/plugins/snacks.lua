@@ -20,7 +20,11 @@ return {
           explorer = {
             trash = true,
             hidden = true,
-            layout = { preset = "sidebar", preview = false },
+            layout = {
+              preset = "sidebar",
+              preview = false,
+              layout = { width = 0.3 },
+            },
           },
         },
       },
