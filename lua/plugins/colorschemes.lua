@@ -6,6 +6,9 @@ return {
     "rebelot/kanagawa.nvim",
   },
   {
+    "oskarnurm/koda.nvim",
+  },
+  {
     "rose-pine/neovim",
     name = "rose-pine",
   },
