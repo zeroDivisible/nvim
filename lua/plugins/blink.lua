@@ -1,6 +1,10 @@
 return {
   "saghen/blink.cmp",
   opts = {
+    keymap = {
+      ["<Tab>"] = { "select_and_accept", "snippet_forward", "fallback" },
+      ["<S-Tab>"] = { "snippet_backward", "fallback" },
+    },
     completion = {
       accept = { auto_brackets = { enabled = true } },
       documentation = { auto_show = true, auto_show_delay_ms = 200 },

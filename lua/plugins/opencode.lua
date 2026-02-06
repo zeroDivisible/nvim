@@ -22,7 +22,17 @@ return {
         keymap_prefix = "<leader>a", -- AI prefix to avoid conflict with oil.nvim
         keymap = {
           editor = {
-            ["<leader>ag"] = { "toggle", desc = "Toggle OpenCode" },
+            ["<leader>aa"] = {
+              function()
+                local state = require("opencode.state")
+                if state.windows == nil then
+                  require("opencode.core").open({ focus = "input", start_insert = true })
+                else
+                  require("opencode.api").close()
+                end
+              end,
+              desc = "Toggle OpenCode",
+            },
             ["<leader>ai"] = { "open_input", desc = "Open input" },
             ["<leader>aI"] = { "open_input_new_session", desc = "Open input (new session)" },
             ["<leader>ao"] = { "open_output", desc = "Open output" },
@@ -48,6 +58,7 @@ return {
             ["<leader>ax"] = { "swap_position", desc = "Swap pane position" },
             ["<leader>att"] = { "toggle_tool_output", desc = "Toggle tool output" },
             ["<leader>atr"] = { "toggle_reasoning_output", desc = "Toggle reasoning output" },
+            ["<leader>am"] = { "switch_mode", desc = "Toggle agent mode" },
             ["<leader>a/"] = { "quick_chat", mode = { "n", "x" }, desc = "Quick chat" },
           },
           input_window = {
@@ -60,10 +71,9 @@ return {
             ["#"] = { "context_items", mode = "i", desc = "Context items" },
             ["<M-v>"] = { "paste_image", mode = "i", desc = "Paste image" },
             ["<C-i>"] = { "focus_input", mode = { "n", "i" }, desc = "Focus input" },
-            ["<tab>"] = { "toggle_pane", mode = { "n", "i" }, desc = "Toggle pane" },
             ["<up>"] = { "prev_prompt_history", mode = { "n", "i" }, desc = "Previous prompt" },
             ["<down>"] = { "next_prompt_history", mode = { "n", "i" }, desc = "Next prompt" },
-            ["<M-m>"] = { "switch_mode", desc = "Switch mode" },
+            ["<tab>"] = { "switch_mode", mode = { "n", "i" }, desc = "Switch mode" },
             ["<M-r>"] = { "cycle_variant", mode = { "n", "i" }, desc = "Cycle variant" },
           },
           output_window = {
@@ -71,7 +81,7 @@ return {
             ["<C-c>"] = { "cancel", desc = "Cancel request" },
             ["]]"] = { "next_message", desc = "Next message" },
             ["[["] = { "prev_message", desc = "Previous message" },
-            ["<tab>"] = { "toggle_pane", mode = { "n", "i" }, desc = "Toggle pane" },
+            ["<tab>"] = { "switch_mode", mode = { "n", "i" }, desc = "Switch mode" },
             ["i"] = { "focus_input", "n", desc = "Focus input" },
             ["<M-r>"] = { "cycle_variant", mode = { "n" }, desc = "Cycle variant" },
             ["<leader>aS"] = { "select_child_session", desc = "Select child session" },
@@ -122,6 +132,11 @@ return {
           selection = {
             enabled = true,
           },
+        },
+        quick_chat = {
+          default_model = "claude-sonnet-4-5",
+          default_agent = "plan", -- plan ensure no file modifications by default
+          instructions = nil, -- Use built-in instructions if nil
         },
       })
     end,
