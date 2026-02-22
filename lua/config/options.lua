@@ -4,3 +4,5 @@
 
 -- Don't show tabs/trailing whitespace
 vim.opt.list = false
+
+vim.opt.scrolloff = 15
