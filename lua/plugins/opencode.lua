@@ -8,6 +8,8 @@ return {
         opts = {
           anti_conceal = { enabled = false },
           file_types = { "markdown", "opencode_output" },
+          -- TODO: remove after upstream fix (https://github.com/MeanderingProgrammer/render-markdown.nvim)
+          code = { disable = {} },
         },
         ft = { "markdown", "opencode_output" },
       },
