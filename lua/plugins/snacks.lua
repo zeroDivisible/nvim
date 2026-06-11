@@ -5,6 +5,15 @@ return {
       explorer = {
         replace_netrw = false,
       },
+      terminal = {
+        env = { ZELLIJ = "0" }, -- embedded shell skips Zellij auto-start (guard sees ZELLIJ set)
+        win = {
+          keys = {
+            term_right = { "<C-w>L", function() vim.cmd("wincmd L") end, mode = "t", desc = "Terminal → right" },
+            term_bottom = { "<C-w>J", function() vim.cmd("wincmd J") end, mode = "t", desc = "Terminal → bottom" },
+          },
+        },
+      },
       picker = {
         layout = {
           preset = "vertical", -- list on top, preview on bottom
