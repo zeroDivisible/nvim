@@ -8,6 +8,10 @@ vim.opt.scrolloff = 15
 vim.opt.sidescrolloff = 10
 vim.opt.showmode = false
 
+-- No format-on-save; format manually with <leader>cf. Toggle back on per-buffer
+-- with <leader>uf or globally with <leader>uF.
+vim.g.autoformat = false
+
 -- Neovim's built-in message UI (nvim 0.12+). Unlike noice it attaches with
 -- set_cmdheight=false, so the native cmdline keeps its row.
 require("vim._core.ui2").enable({
