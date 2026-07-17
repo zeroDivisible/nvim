@@ -8,6 +8,27 @@ vim.opt.scrolloff = 15
 vim.opt.sidescrolloff = 10
 vim.opt.showmode = false
 
+-- Neovim's built-in message UI (nvim 0.12+). Unlike noice it attaches with
+-- set_cmdheight=false, so the native cmdline keeps its row.
+require("vim._core.ui2").enable({
+  enable = true,
+  msg = {
+    target = "cmd", -- default: classic cmdline. options: cmd, msg
+    -- errors go to the ephemeral bottom-right window instead; everything else
+    -- (:w confirmations, search counts, ...) stays quietly in the cmdline
+    targets = {
+      emsg = "msg",
+      echoerr = "msg",
+      lua_error = "msg",
+      rpc_error = "msg",
+    },
+    pager = { height = 1 },
+    msg = { height = 0.5, timeout = 4500 },
+    dialog = { height = 0.5 },
+    cmd = { height = 0.5 },
+  },
+})
+
 vim.opt.backup = false
 vim.opt.writebackup = false
 vim.opt.swapfile = false

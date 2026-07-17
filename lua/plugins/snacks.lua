@@ -41,6 +41,7 @@ return {
         },
       },
       -- Additional modules
+      notifier = { enabled = false }, -- mini.notify owns vim.notify instead
       bigfile = { enabled = true },
       zen = { enabled = true },
       scratch = { enabled = true },
