@@ -26,6 +26,9 @@ return {
           },
         },
         sources = {
+          files = {
+            matcher = { frecency = true },
+          },
           explorer = {
             trash = true,
             hidden = true,
