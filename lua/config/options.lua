@@ -5,7 +5,11 @@
 -- Don't show tabs/trailing whitespace
 vim.opt.list = false
 vim.opt.scrolloff = 15
-vim.opt.sidescrolloff = 10
+
+-- below two disable jumping window when blink ghost_text is too long for narrow windws.
+vim.opt.sidescrolloff = 0
+vim.opt.sidescroll=0
+
 vim.opt.showmode = false
 
 -- No format-on-save; format manually with <leader>cf. Toggle back on per-buffer
