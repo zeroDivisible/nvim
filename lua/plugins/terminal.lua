@@ -3,6 +3,12 @@
 -- and get()/open() compute it at different merge stages, so omitting it makes
 -- get() miss the window and re-create one.
 local TERM_ENV = { ZELLIJ = "0" }
+-- Root and cwd terminals live in distinct snacks "slots". snacks keys
+-- terminals by a tid hashed from cmd/cwd/env/count; when vim's cwd equals the
+-- project root, root and cwd would otherwise share a tid and `get()` would
+-- reuse one window for both <leader>ft and <leader>fT. Pinning count keeps
+-- them separate regardless of cwd.
+local ROOT_COUNT, CWD_COUNT = 1, 2
 local current_term ---@type snacks.win?
 
 local function reveal(t)
@@ -23,18 +29,18 @@ local function toggle_current()
   else
     -- get() reuses an existing root terminal (tid match), so a reload that
     -- nulled current_term doesn't orphan the old window.
-    current_term = Snacks.terminal.get(nil, { cwd = LazyVim.root(), env = TERM_ENV })
+    current_term = Snacks.terminal.get(nil, { cwd = LazyVim.root(), env = TERM_ENV, count = ROOT_COUNT })
     reveal(current_term)
   end
 end
 
 local function open_root()
-  current_term = Snacks.terminal.get(nil, { cwd = LazyVim.root(), env = TERM_ENV })
+  current_term = Snacks.terminal.get(nil, { cwd = LazyVim.root(), env = TERM_ENV, count = ROOT_COUNT })
   reveal(current_term)
 end
 
 local function open_cwd()
-  current_term = Snacks.terminal.get(nil, { cwd = vim.fn.getcwd(), env = TERM_ENV })
+  current_term = Snacks.terminal.get(nil, { cwd = vim.fn.getcwd(), env = TERM_ENV, count = CWD_COUNT })
   reveal(current_term)
 end
 
