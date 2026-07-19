@@ -2,7 +2,7 @@ return {
   {
     "ThePrimeagen/refactoring.nvim",
     dependencies = {
-      -- TODO: remove once LazyVim extras/editor/refactoring.lua adds this dependency
+      -- TODO: remove async.nvim dep when LazyVim's refactoring extra includes it.
       "lewis6991/async.nvim",
     },
   },

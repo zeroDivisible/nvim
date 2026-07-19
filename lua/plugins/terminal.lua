@@ -1,13 +1,9 @@
--- Terminal keymaps. Keys are merged by lazy.nvim into snacks.nvim.
--- TERM_ENV must match snacks.lua terminal.env: Snacks' tid hash includes env,
--- and get()/open() compute it at different merge stages, so omitting it makes
--- get() miss the window and re-create one.
+-- Terminal keymaps (merged by lazy.nvim into snacks.nvim).
+-- TERM_ENV: env passed to every shell terminal. Snacks' tid hash includes
+-- env, so every get() call for the same slot must pass the same env.
 local TERM_ENV = { ZELLIJ = "0" }
--- Root and cwd terminals live in distinct snacks "slots". snacks keys
--- terminals by a tid hashed from cmd/cwd/env/count; when vim's cwd equals the
--- project root, root and cwd would otherwise share a tid and `get()` would
--- reuse one window for both <leader>ft and <leader>fT. Pinning count keeps
--- them separate regardless of cwd.
+-- Root and cwd terminals use distinct count slots so they never share a tid
+-- (Snacks hashes cmd/cwd/env/count), even when cwd == root.
 local ROOT_COUNT, CWD_COUNT = 1, 2
 local current_term ---@type snacks.win?
 
@@ -27,8 +23,7 @@ local function toggle_current()
   elseif t and t:buf_valid() then
     reveal(t)
   else
-    -- get() reuses an existing root terminal (tid match), so a reload that
-    -- nulled current_term doesn't orphan the old window.
+    -- get() reuses an existing root terminal by tid match.
     current_term = Snacks.terminal.get(nil, { cwd = LazyVim.root(), env = TERM_ENV, count = ROOT_COUNT })
     reveal(current_term)
   end
@@ -64,8 +59,7 @@ local function pick()
 end
 
 -- <leader>tm: move current terminal between bottom/right split.
--- wincmd resets tailing (restored via stopinsert+startinsert re-sync) and
--- window size (restored via t:dim() to match the split style's 40%).
+-- wincmd resets tailing and window size (re-synced via stopinsert/startinsert and t:dim()).
 local function move_position()
   local t = current_term
   if not (t and t:win_valid()) then

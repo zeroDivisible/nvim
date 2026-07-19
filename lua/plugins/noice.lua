@@ -1,5 +1,4 @@
--- Native cmdline and messages instead of noice's UI replacement.
--- vim.notify is handled by mini.notify (see mini-notify.lua).
+-- Disabled: use Neovim's native cmdline/messages. vim.notify is owned by mini.notify (mini-notify.lua).
 return {
   { "folke/noice.nvim", enabled = false },
 }

@@ -48,21 +48,6 @@ return {
       sorts = { 'exact', 'score', 'sort_text' },
     },
   },
-  config = function(_, opts)
-    require('blink.cmp').setup(opts)
-    -- Match the docs window width to the menu width. The docs window uses a
-    -- 'padded' border (horizontal=2) while the menu has none, so subtract it.
-    vim.api.nvim_create_autocmd('User', {
-      pattern = 'BlinkCmpMenuPositionUpdate',
-      callback = function()
-        local ok_menu, menu = pcall(require, 'blink.cmp.completion.windows.menu')
-        if not ok_menu or not menu.win then return end
-        local ok_docs, docs = pcall(require, 'blink.cmp.completion.windows.documentation')
-        if not ok_docs or not docs.win then return end
-        if not (menu.win:is_open() and docs.win:is_open()) then return end
-        local target = menu.win:get_width() - docs.win:get_border_size().horizontal
-        if target > 0 then docs.win:set_width(target) end
-      end,
-    })
-  end,
+  -- No `config` override: LazyVim's blink spec provides one that sets up
+  -- blink.compat and cleans up internal fields before calling setup().
 }

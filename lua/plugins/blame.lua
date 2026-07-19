@@ -1,5 +1,5 @@
 return {
-  -- allows showing blame in virtual buffer, etc
+  -- Blame toggle (virtual / window).
   {
     "FabijanZulj/blame.nvim",
     keys = {
@@ -9,8 +9,7 @@ return {
     opts = {},
   },
 
-  -- this plugin is not used for displaying inline blame / commit messages but only for
-  -- an easy way to jump to the remote for a particular file
+  -- Jump to remote file/commit URL in the browser.
   {
     "f-person/git-blame.nvim",
     event = "VeryLazy",

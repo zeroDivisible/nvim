@@ -1,6 +1,5 @@
 return {
-  -- mini.notify renders vim.notify(). noice has no mini.notify backend, so it
-  -- has to own vim.notify directly rather than being routed to by noice.
+  -- mini.notify owns vim.notify directly (noice is disabled).
   {
     "nvim-mini/mini.notify",
     event = "VeryLazy",

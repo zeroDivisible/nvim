@@ -1,6 +1,4 @@
---- This is done to help with pairing " after a word
---- Without this, typing 'foo bar baz<cursor>"' would have opened both opening
---- and closing quote, which is not what I want.
+--- Only auto-pair quotes after whitespace/brackets, not after a word.
 return {
   "nvim-mini/mini.pairs",
   opts = {

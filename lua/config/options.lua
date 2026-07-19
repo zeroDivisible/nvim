@@ -6,24 +6,21 @@
 vim.opt.list = false
 vim.opt.scrolloff = 15
 
--- below two disable jumping window when blink ghost_text is too long for narrow windws.
+-- No horizontal scroll jump (keeps blink ghost_text from shifting the window).
 vim.opt.sidescrolloff = 0
 vim.opt.sidescroll=0
 
 vim.opt.showmode = false
 
--- No format-on-save; format manually with <leader>cf. Toggle back on per-buffer
--- with <leader>uf or globally with <leader>uF.
+-- Format-on-save off; use <leader>cf, or toggle with <leader>uf / <leader>uF.
 vim.g.autoformat = false
 
--- Neovim's built-in message UI (nvim 0.12+). Unlike noice it attaches with
--- set_cmdheight=false, so the native cmdline keeps its row.
+-- Neovim's built-in message UI (nvim 0.12+). Keeps the native cmdline row (set_cmdheight=false).
 require("vim._core.ui2").enable({
   enable = true,
   msg = {
-    target = "cmd", -- default: classic cmdline. options: cmd, msg
-    -- errors go to the ephemeral bottom-right window instead; everything else
-    -- (:w confirmations, search counts, ...) stays quietly in the cmdline
+    target = "cmd", -- classic cmdline (options: cmd, msg)
+    -- Errors route to the ephemeral bottom-right window; everything else (saves, search counts) stays in the cmdline.
     targets = {
       emsg = "msg",
       echoerr = "msg",

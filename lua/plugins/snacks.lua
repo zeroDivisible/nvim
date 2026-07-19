@@ -5,10 +5,7 @@ return {
       explorer = {
         replace_netrw = false,
       },
-      -- terminal env (ZELLIJ=0) is set per-call in plugins/terminal.lua, not here.
-      -- Setting it here makes Snacks.terminal.get/open compute different tids
-      -- (get uses raw opts, open merges this config), breaking Snacks.lazygit
-      -- and any Snacks.terminal call that doesn't pass env explicitly.
+      -- ZELLIJ=0 env is set per-call in plugins/terminal.lua (Snacks' tid hash must match between get() and open()).
       picker = {
         layout = {
           preset = "vertical", -- list on top, preview on bottom
@@ -35,8 +32,7 @@ return {
           },
         },
         previewers = {
-          -- With difftastic configured as a git tool, we need to ensure `terminal` diff
-          -- style, otherwise the diff won't take the whole output window.
+          -- terminal style: run git diff in a PTY so difftastic uses the full window width.
           diff = { style = "terminal" },
         },
       },

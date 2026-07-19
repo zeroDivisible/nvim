@@ -3,7 +3,7 @@
 -- Add any additional keymaps here
 vim.keymap.set("i", "<C-G>", "<ESC>", { silent = true })
 
--- disable Ex mode (Q in Neovim replays last macro by default, which is useful)
+-- Disable Ex mode (gQ); Q stays for macro replay.
 vim.keymap.set("n", "gQ", "<Nop>", { silent = true, desc = "Disable Ex mode" })
 
 -- buffer navigation (vim tab-like bindings)

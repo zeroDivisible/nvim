@@ -137,7 +137,7 @@ return {
         },
         quick_chat = {
           default_model = "claude-sonnet-4-5",
-          default_agent = "plan", -- plan ensure no file modifications by default
+          default_agent = "plan", -- read-only by default (no file modifications)
           instructions = nil, -- Use built-in instructions if nil
         },
       })
