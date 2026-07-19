@@ -33,6 +33,11 @@ return {
             },
           },
         },
+        previewers = {
+          -- With difftastic configured as a git tool, we need to ensure `terminal` diff
+          -- style, otherwise the diff won't take the whole output window.
+          diff = { style = "terminal" },
+        },
       },
       -- Additional modules
       notifier = { enabled = false }, -- mini.notify owns vim.notify instead
