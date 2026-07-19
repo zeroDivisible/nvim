@@ -67,6 +67,28 @@ Three granularities, pick by scope:
 2. **Whole hunks** — in the buffer, `]h` to the hunk, `<leader>ghs`. `<leader>ghu` to undo the last stage. In `<leader>gd`, `<Tab>` stages the selected hunk.
 3. **Part of a hunk** — in the buffer, select the lines in visual mode, `<leader>ghs`. Stages only that range.
 
+## lazygit (`<leader>gg`)
+
+| Key | Action |
+| --- | --- |
+| `<leader>gg` | Open lazygit at the project root (floating terminal) |
+| `<leader>gG` | Open lazygit at vim's cwd |
+
+Inside lazygit (the TUI):
+
+| Key | Action |
+| --- | --- |
+| `space` | Stage / unstage the selected file or hunk |
+| `c` | Commit staged changes (opens a message buffer in nvim) |
+| `P` | Push |
+| `p` | Pull |
+| `b` | Branches |
+| `s` | Stash |
+| `]` / `[` | Next / previous tab (status/files/branches/commits/stash) |
+| `?` | Full keymap help |
+
+Commit message buffer: `:wq` commits, `:q!` cancels. lazygit uses `$EDITOR`, which `~/.zprofile` sets to `nvim`.
+
 ## Notifications
 
 | Key | Action |

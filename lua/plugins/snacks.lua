@@ -5,9 +5,10 @@ return {
       explorer = {
         replace_netrw = false,
       },
-      terminal = {
-        env = { ZELLIJ = "0" }, -- embedded shell skips Zellij auto-start
-      },
+      -- terminal env (ZELLIJ=0) is set per-call in plugins/terminal.lua, not here.
+      -- Setting it here makes Snacks.terminal.get/open compute different tids
+      -- (get uses raw opts, open merges this config), breaking Snacks.lazygit
+      -- and any Snacks.terminal call that doesn't pass env explicitly.
       picker = {
         layout = {
           preset = "vertical", -- list on top, preview on bottom
