@@ -65,6 +65,58 @@ In the TUI:
 | `]` / `[` | Next / previous tab |
 | `?` | Full help |
 
+## Agentic (`<leader>a`)
+
+Global:
+
+| Key | Action |
+| --- | --- |
+| `<leader>aa` | Toggle chat panel |
+| `<leader>an` | New session |
+| `<leader>ar` | Restore session |
+| `<leader>af` | Add file/selection to context |
+| `<leader>ad` | Add current line diagnostics |
+| `<leader>aD` | Add all buffer diagnostics |
+| `<leader>as` | Stop generation (interrupt) |
+
+In-chat (widget, all buffers):
+
+| Key | Action |
+| --- | --- |
+| `q` | Close panel |
+| `<S-Tab>` | Cycle agent mode (plan / auto-accept / etc.) |
+| `\s` | Switch provider (Claude ↔ omp) |
+| `\m` | Switch model |
+| `\t` | Change thought level |
+| `\o` | Open options |
+
+Prompt buffer:
+
+| Key | Action |
+| --- | --- |
+| `<CR>` / `<C-s>` | Submit prompt |
+| `\p` (normal) / `<C-v>` (insert) | Paste image |
+| `<Tab>` | Accept completion |
+
+Chat navigation:
+
+| Key | Action |
+| --- | --- |
+| `]]` / `[[` | Next / previous heading |
+| `]t` / `[t` | Next / previous tool call |
+
+Diff preview:
+
+| Key | Action |
+| --- | --- |
+| `]c` / `[c` | Next / previous hunk |
+
+Permission prompt:
+
+| Key | Action |
+| --- | --- |
+| `<C-n>` / `<C-p>` | Cycle next / previous |
+
 ## Notifications
 
 | Key | Action |
