@@ -49,9 +49,9 @@ return {
     }
   end,
   keys = {
-    { "<leader>aa", function() require("agentic").toggle() end, mode = { "n", "v", "i" }, desc = "Agentic: toggle chat" },
-    { "<leader>an", function() require("agentic").new_session() end, mode = { "n", "v", "i" }, desc = "Agentic: new session" },
-    { "<leader>ar", function() require("agentic").restore_session() end, mode = { "n", "v", "i" }, desc = "Agentic: restore session" },
+    { "<leader>aa", function() require("agentic").toggle() end, mode = { "n", "v" }, desc = "Agentic: toggle chat" },
+    { "<leader>an", function() require("agentic").new_session() end, mode = { "n", "v" }, desc = "Agentic: new session" },
+    { "<leader>ar", function() require("agentic").restore_session() end, mode = { "n", "v" }, desc = "Agentic: restore session" },
     { "<leader>af", function() require("agentic").add_selection_or_file_to_context() end, mode = { "n", "v" }, desc = "Agentic: add file/selection to context" },
     { "<leader>ad", function() require("agentic").add_current_line_diagnostics() end, mode = "n", desc = "Agentic: add line diagnostics" },
     { "<leader>aD", function() require("agentic").add_buffer_diagnostics() end, mode = "n", desc = "Agentic: add buffer diagnostics" },
