@@ -23,6 +23,10 @@ require("lazy").setup({
     -- import/override with your plugins
     { import = "plugins" },
   },
+  rocks = {
+    enabled = true,
+    hererocks = true,   -- force lazy to install its own LuaJIT 5.1 + luarocks
+  },
   defaults = {
     -- Lazy-load LazyVim plugins only; set true to lazy-load custom plugins too.
     lazy = false,
