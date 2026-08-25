@@ -1,8 +1,9 @@
 -- bootstrap lazy.nvim, LazyVim and your plugins
 require("config.lazy")
 
-vim.opt.guifont = { "Berkeley Mono", ":h20:b" }
+vim.opt.guifont = { "Berkeley Mono", ":h24:b" }
 
+-- add keys for resizing UI.
 if vim.g.neovide then
   local function resize_font(delta)
     local size = tonumber(vim.o.guifont:match(":h(%d+)"))
