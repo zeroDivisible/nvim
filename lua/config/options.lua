@@ -16,6 +16,8 @@ vim.opt.showmode = false
 vim.g.autoformat = false
 
 -- Neovim's built-in message UI (nvim 0.12+). Keeps the native cmdline row (set_cmdheight=false).
+-- 'timeout' and cmdline 'maxheight' moved from ui2.enable() into 'messagesopt'.
+vim.opt.messagesopt:append("maxheight:50,timeout:4500")
 require("vim._core.ui2").enable({
   enable = true,
   msg = {
@@ -28,9 +30,8 @@ require("vim._core.ui2").enable({
       rpc_error = "msg",
     },
     pager = { height = 1 },
-    msg = { height = 0.5, timeout = 4500 },
+    msg = { height = 0.5 },
     dialog = { height = 0.5 },
-    cmd = { height = 0.5 },
   },
 })
 
